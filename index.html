@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | University Student</title>
+    <title>Shota Mishima | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@
 
         /* --- Header --- */
         header {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.95); /* 少し透過 */
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -116,7 +116,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--white) 100%);
+            /* 画像を追加し、上から色を重ねて文字を見やすくしています */
+            background: linear-gradient(rgba(222, 242, 241, 0.8), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1352&q=80');
+            background-size: cover;
+            background-position: center;
             text-align: center;
             margin-top: 60px;
         }
@@ -129,8 +132,9 @@
 
         .hero p {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: var(--text-color);
             letter-spacing: 0.05em;
+            font-weight: bold;
         }
 
         /* --- About Section --- */
@@ -151,10 +155,12 @@
         .profile-img {
             width: 150px;
             height: 150px;
-            background-color: #eee; /* 写真プレースホルダー */
+            /* 仮のプロフィール画像URL */
+            background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=880&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 50%;
             flex-shrink: 0;
-            object-fit: cover;
         }
 
         .profile-info h3 {
@@ -163,7 +169,8 @@
         }
 
         .profile-info .university {
-            color: var(--text-light);
+            color: var(--primary-color);
+            font-weight: bold;
             margin-bottom: 20px;
             display: block;
         }
@@ -218,11 +225,23 @@
 
         .work-image {
             height: 200px;
-            background-color: #ddd; /* サムネイルプレースホルダー */
+            background-color: #ddd;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
+            overflow: hidden;
+        }
+
+        /* 画像を枠いっぱいに表示するための設定 */
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        
+        .work-card:hover .work-image img {
+            transform: scale(1.05);
         }
 
         .work-info {
@@ -287,7 +306,7 @@
 
     <header>
         <div class="container header-inner">
-            <div class="logo">TARO YAMADA</div>
+            <div class="logo">SHOTA MISHIMA</div>
             <nav>
                 <ul class="nav-list">
                     <li><a href="#about">About</a></li>
@@ -311,10 +330,10 @@
             
             <div class="about-content">
                 <div class="profile-header">
-                    <img src="https://via.placeholder.com/150" alt="Profile Image" class="profile-img">
+                    <div class="profile-img"></div>
                     <div class="profile-info">
-                        <h3>山田 太郎</h3>
-                        <span class="university">〇〇大学 〇〇学部 3年</span>
+                        <h3>三嶋 祥太</h3>
+                        <span class="university">日本大学理工学部 応用情報工学科 1年</span>
                         <p>Webデザインとコーディングを勉強中の大学生です。「ユーザーに寄り添うデザイン」を心がけています。趣味はカフェ巡りと写真撮影です。</p>
                     </div>
                 </div>
@@ -349,7 +368,9 @@
             <div class="works-grid">
                 
                 <article class="work-card">
-                    <div class="work-image">[Image]</div>
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cafe Image">
+                    </div>
                     <div class="work-info">
                         <h3>架空のカフェサイト</h3>
                         <p>落ち着いた雰囲気を伝えるための配色と写真選定にこだわりました。</p>
@@ -359,7 +380,9 @@
                 </article>
 
                 <article class="work-card">
-                    <div class="work-image">[Image]</div>
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Image">
+                    </div>
                     <div class="work-info">
                         <h3>イベントLP制作</h3>
                         <p>大学生向けのイベントランディングページ。FVでのインパクトを重視。</p>
@@ -369,7 +392,9 @@
                 </article>
 
                 <article class="work-card">
-                    <div class="work-image">[Image]</div>
+                    <div class="work-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e0c766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Design Image">
+                    </div>
                     <div class="work-info">
                         <h3>バナーデザイン集</h3>
                         <p>クリック率を意識した様々なパターンのバナーを作成。</p>
@@ -388,7 +413,7 @@
             <p style="margin: 20px 0;">お問い合わせはメールにてお願いいたします。</p>
             <p><a href="mailto:example@email.com" style="text-decoration: underline;">example@email.com</a></p>
             <br>
-            <p>&copy; 2024 Taro Yamada Portfolio.</p>
+            <p>&copy; 2025 Shota Mishima Portfolio.</p>
         </div>
     </footer>
 
